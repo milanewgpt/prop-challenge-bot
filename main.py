@@ -26,6 +26,10 @@ app: Application = None
 async def job_scan() -> None:
     global db, app
 
+    if config.TRADING_PAUSED:
+        logger.info("Scan skipped: TRADING_PAUSED=True")
+        return
+
     current_hour = int(time.strftime("%H", time.gmtime()))
     if current_hour in config.BLACKLISTED_HOURS_UTC:
         logger.info(f"Scan skipped: hour {current_hour} UTC is blacklisted")

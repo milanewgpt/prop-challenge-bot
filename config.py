@@ -10,6 +10,7 @@ BINANCE_API_KEY = os.getenv("BINANCE_API_KEY", "")
 BINANCE_API_SECRET = os.getenv("BINANCE_API_SECRET", "")
 
 LIVE_TRADING = os.getenv("LIVE_TRADING", "false").lower() == "true"
+TRADING_PAUSED = True  # set False to re-enable entries
 MARGIN_TYPE = "CROSSED"
 LIMIT_ORDER_EXPIRY_MINUTES = 30
 
